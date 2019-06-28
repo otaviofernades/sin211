@@ -1,0 +1,149 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+//Criando a estrutura de castro dos clientes
+typedef struct Scadastro{
+  char nome[30];
+  int contato;
+  int cpf;
+  char forma_quit[100];
+}cadastro;
+
+//Criando a struct lista
+typedef struct Scelula{
+  cadastro info;
+  struct Scelula *next;
+}CELULA;
+
+//criar um nó
+CELULA* getnode(){
+  return(CELULA*) malloc (sizeof(CELULA));
+}
+
+//Liberando o nó
+void freenode (CELULA *q){
+  free(q);
+}
+
+//inicializar lista
+void inicializarlista(CELULA**lista){
+    *lista=NULL;
+ }
+
+//Verificar se está vazia
+int empty(CELULA* lista){
+  if(lista==NULL){
+    return 1;
+   }
+   return 0;
+}
+
+//inserir os elementos no inicio da lista
+void insereinicio(CELULA** lista , cadastro x){
+  CELULA* q;
+  q=getnode();
+  if(q!=NULL){
+    q->info=x;
+    q->next=*lista;
+    *lista=q;
+    }else{
+      printf("ERRO NA INSERÇÃO");
+      exit(1);
+    }
+}
+
+//Pesquisar o cliente na lista
+CELULA* pesquisar(CELULA* lista, cadastro x){
+  CELULA* q;
+  if(!empty(lista)){
+    q=lista;
+    while(q!=NULL){
+      if(q->info==x){
+        return q;
+      }
+      q=q->next;
+    }
+  }
+  return NULL;
+}
+
+//imprimir
+
+
+
+
+
+//Remover Inicio
+void removerinicio(CELULA** lista, cadastro x{
+  CELULA* q;
+  if(!empty(*lista)){
+    *lista=q->next;
+    freenode(q);
+  }else{
+    printf("ERRO, A LISTA ESTA VAZIA");
+    exit(1);
+  }
+}
+
+//remover cliente que negociou a sua dívida;
+int remover(CELULA** lista, cadastro x){
+  CELULA* q;
+  CELULA* aux;
+  if((q=pesquisar(*lista,x))!=NULL){
+    aux=*lista;
+    if(aux==q)
+      removerinicio(*lista);
+  }else{
+      while(aux->next!q){
+        aux=aux->next;
+        freenode(q);
+      }
+      return 1; //removeu
+  }
+    return 0; //não removeu
+}
+
+//mover para frente
+
+
+//preencher cadastro
+void preencher_cadastro(cadastro x, int qtd){
+  int i=0;
+  while(i<qtd){
+    printf("Digite o nome do cliente");
+    scanf("%c", &cadastro.nome);
+    printf("Digite o contato do cliente");
+    scanf("%d", &cadastro.contato);
+    printf("Digite o cpf do cliente");
+    scanf("%d", &cadastro.cpf);
+    printf("Digite a forma de parcelamento oferecida para o cliente");
+    scanf("%c", &cadastro.forma_quit);
+    inseririnicio(&ptrlista, x);
+    i++;
+    }  
+
+int main(){
+  cadastro x;
+  CELULA *ptrlista;
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
