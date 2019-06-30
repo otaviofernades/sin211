@@ -58,26 +58,52 @@ CELULA* pesquisar(CELULA* lista, cadastro x){
   if(!empty(lista)){
     q=lista;
     while(q!=NULL){
-      if(q->info==x){
+      //if(q->info==x){
         return q;
       }
       q=q->next;
     }
-  }
-  return NULL;
+  return 0;
+}
+
+//Função de verificação de negociação
+int negociar (CELULA* lista){
+	int veri; // variavel para verificação da negociação;
+	CELULA* q;
+	q->info;
+	pritnf(" A divida foi negociada? 1- Sim 2- Não");
+	scanf("%d",&veri);
+	do{
+		if(veri==1){
+		return 1;
+		freenode(q);
+		}else if( veri==2){
+		//mover para frente
+		return 0;
+		}
+	}while((veri!=1)||(veri!=2));
 }
 
 //imprimir
-
-
-
-
+void imprimir (CELULA* lista){
+	CELULA* aux;
+	aux=lista;
+	if(!empty()){
+		while(aux!=NULL){
+		printf("%C\t", aux->info);
+		negociar(lista);
+		printf("\n");
+	}
+	}else{
+		return 0;
+	}
+}
 
 //Remover Inicio
-void removerinicio(CELULA** lista, cadastro x{
+void removerinicio(CELULA* lista, cadastro x){
   CELULA* q;
-  if(!empty(*lista)){
-    *lista=q->next;
+  if(!empty(lista)){
+    *lista=q->info;
     freenode(q);
   }else{
     printf("ERRO, A LISTA ESTA VAZIA");
@@ -92,9 +118,9 @@ int remover(CELULA** lista, cadastro x){
   if((q=pesquisar(*lista,x))!=NULL){
     aux=*lista;
     if(aux==q)
-      removerinicio(*lista);
+      removerinicio(*lista,x);
   }else{
-      while(aux->next!q){
+      while(aux->next!=q){
         aux=aux->next;
         freenode(q);
       }
@@ -104,12 +130,42 @@ int remover(CELULA** lista, cadastro x){
 }
 
 //mover para frente
+void mover_pra_frente (CELULA* ptrlista, cadastro x){
+	CELULA* q;
+	CELULA* aux;
+	
+	if(q!=NULL){
+		q->info;
+		
+	}
+	
+	
+	
+	
+	void insereinicio(CELULA** lista , cadastro x){
+ 		CELULA* q;
+		CELULA* aux;
+ 		 if(q!=NULL){
+ 		 	aux->next=q->next;
+  			q->next=*lista;
+  		  
+    
+    }else{
+      printf("ERRO NA INSERÇÃO");
+      exit(1);
+    }
+}
+
+	
+	//pegar o nó
+	//apontar pro inicio;
+	
+}
 
 
 //preencher cadastro
-void preencher_cadastro(cadastro x, int qtd){
-  int i=0;
-  while(i<qtd){
+void preencher_cadastro(cadastro x){
+  
     printf("Digite o nome do cliente");
     scanf("%c", &cadastro.nome);
     printf("Digite o contato do cliente");
@@ -119,14 +175,32 @@ void preencher_cadastro(cadastro x, int qtd){
     printf("Digite a forma de parcelamento oferecida para o cliente");
     scanf("%c", &cadastro.forma_quit);
     inseririnicio(&ptrlista, x);
-    i++;
-    }  
+}
 
 int main(){
   cadastro x;
   CELULA *ptrlista;
+  int qtd;
+  int opcao=0;
   
+  while (opcao!=2){
+  printf("Digite a opção que deseja realizar: 1 - Cadastrar 2- Imprimir");
+  scanf("%d",&opcao);
   
+  switch (opcao){ //menu de opções sobre a lista
+  	case 1: //Cadastrar os clientes
+  		preencher_cadastro(x);
+  		
+  		
+  	case 2: //Imprimir os clientes cadastrados
+  		imprimir(&ptrlista);
+	}
+	}
+	imprimir(&ptrlista);
+	system("pause");
+	return 0;
+}
+
   
   
   
